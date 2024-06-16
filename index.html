@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  
+</head>
+
+<body>
+
+  <label for="inputAge">Enter your Age:</label>
+  <input type="number" id="inputAge"/>
+  <button id="displayAgeBtn">Display Age</button>
+  <button id="checkElegibilityBtn">Check Elegibility</button>
+  <p id="displayAge"></p>
+
+  <label for="inputYesOrNo">Are you a student</label>
+  <input type="text" id="inputYesOrNo"/>
+  <button id="displayAnswerBtn">Display Answer</button>
+  <button id="checkAnswerElegibilityBtn">Check Elegibility</button>
+  <p id="displayAnswer"></p>
+
+<label for="inputPassword">Enter Password</label>
+  <input type="text" id="inputPassword"/>
+  <button id="displayPasswordBtn">Display Password</button>
+  <button id="checkPasswordElegibility">Check Password</button>
+  <p id="displayResult"></p>
+  
+  <script>
+
+const inputAge = document.querySelector("#inputAge")
+    const displayAgeBtn = document.querySelector("#displayAgeBtn")
+    const checkElegibilityBtn = document.querySelector("#checkElegibilityBtn")
+    const displayAge = document.querySelector("#displayAge")
+    displayAgeBtn.addEventListener("click" , function(){
+      let age = inputAge.value
+      displayAge.textContent = `Your Age: ${age}`
+      displayAge.style.color = "black"
+    })
+checkElegibilityBtn.addEventListener("click" , function(){
+  if(inputAge.value>=18){displayAge.style.color = "green"}
+  else{displayAge.style.color = "red"}
+})
+
+
+    const inputYesOrNo = document.querySelector("#inputYesOrNo")
+    const displayAnswerBtn = document.querySelector("#displayAnswerBtn")
+    const checkAnswerElegibilityBtn = document.querySelector("#checkAnswerElegibilityBtn")
+    const displayAnswer = document.querySelector("#displayAnswer")
+displayAnswerBtn.addEventListener("click" , function(){
+  displayAnswer.textContent = "Your Answer: " + inputYesOrNo.value
+  displayAnswer.style.color = "black"
+})
+    checkAnswerElegibilityBtn.addEventListener("click" , function(){
+      if(inputYesOrNo.value==="yes" || inputYesOrNo.value==="Yes" || inputYesOrNo.value==="YES"){
+        displayAnswer.textContent = "You are elegible"
+        displayAnswer.style.color = "green"
+      }
+      else{
+        displayAnswer.textContent = "You are not elegible"
+        displayAnswer.style.color = "red"
+      }
+    })
+
+    const inputPassword = document.querySelector("#inputPassword")
+    const displayPasswordBtn = document.querySelector("#displayPasswordBtn")
+    const checkPasswordElegibilityBtn = document.querySelector("#checkPasswordElegibility")
+    const displayResult = document.querySelector("#displayResult")
+    displayPasswordBtn.addEventListener("click" , function(){
+      let password = inputPassword.value
+      displayResult.textContent = "Your Password: " + password
+      displayResult.style.color = "black"
+    })
+    checkPasswordElegibilityBtn.addEventListener("click" , function(){
+      let password = inputPassword.value
+      let indexOfAt = password.indexOf("@")
+      if(indexOfAt>0){
+        displayResult.textContent = "Password Accepted"
+        displayResult.style.color = "green"
+      }
+      else{
+        displayResult.textContent = "Invalid password, password must contain @ symbol."
+        displayResult.style.color = "red"
+      }
+      
+    })
+    
+    
+  </script>
+</body>
+
+</html>
